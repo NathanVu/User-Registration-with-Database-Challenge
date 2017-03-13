@@ -1,0 +1,23 @@
+<h1>Hello <%= @user.username %></h1>
+<h2>Email Address: <%=@user.email %></h2>
+<h2>Street Address: <%=@user.address %></h2>
+<h2>City: <%=@user.city %></h2>
+<h2>State: <%=@user.state %></h2>
+<h2>Zip: <%=@user.zip %></h2>
+<h2>Country: <%=@user.country %></h2>
+
+ <!-- If there are no phone numbers, the page says, "No phone". -->
+<%#if phone.number.strip.empty?%>
+<%if @user.phones.empty?%>
+  <h2> No Numbers </h2>
+<%else%>
+  <h2>Phone Number: </h2>
+  <% @user.phones.each do |phone| %>
+    <br>
+    <%=phone.number%>
+  <%end%>
+<%end%>
+
+<form action="log_out" method="get">
+  <input type="submit" value="Log Out">
+</form>
